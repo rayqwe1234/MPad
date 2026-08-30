@@ -1,0 +1,92 @@
+<Window x:Class="MPad.Tester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MPad.Tester"
+        Title="MPad 手柄测试器" Width="1080" Height="760" MinWidth="900" MinHeight="650"
+        Background="#0D1015" Foreground="#F4F7FA" FontFamily="Segoe UI"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="26">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Text="MPad 手柄测试器" FontSize="30" FontWeight="SemiBold" />
+                <TextBlock Text="检测 Windows 和游戏实际收到的 XInput 输入" Foreground="#9DA7B5" Margin="0,4,0,0" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <Ellipse x:Name="StatusDot" Width="12" Height="12" Fill="#6A7482" Margin="0,0,9,0" />
+                <TextBlock x:Name="StatusText" Text="正在检测…" VerticalAlignment="Center" Margin="0,0,16,0" />
+                <ComboBox x:Name="PlayerSelector" Width="115" SelectedIndex="0" SelectionChanged="PlayerSelector_SelectionChanged">
+                    <ComboBoxItem Content="手柄 1" />
+                    <ComboBoxItem Content="手柄 2" />
+                    <ComboBoxItem Content="手柄 3" />
+                    <ComboBoxItem Content="手柄 4" />
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="0,20,0,18">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="230" />
+            </Grid.ColumnDefinitions>
+            <Border Background="{StaticResource PanelBackground}" CornerRadius="14" Padding="14">
+                <local:GamepadVisualizer x:Name="Visualizer" />
+            </Border>
+            <Border Grid.Column="1" Background="{StaticResource PanelBackground}" CornerRadius="14" Padding="18" Margin="16,0,0,0">
+                <StackPanel>
+                    <TextBlock Text="实时数值" FontSize="17" FontWeight="SemiBold" />
+                    <TextBlock Text="按键" Foreground="#9DA7B5" Margin="0,18,0,0" />
+                    <TextBlock x:Name="ButtonsText" Text="—" FontFamily="Cascadia Mono" TextWrapping="Wrap" Margin="0,5,0,0" MinHeight="44" />
+                    <TextBlock Text="左摇杆" Foreground="#9DA7B5" Margin="0,15,0,0" />
+                    <TextBlock x:Name="LeftStickText" Text="X      0&#x0a;Y      0" FontFamily="Cascadia Mono" Margin="0,5,0,0" />
+                    <TextBlock Text="右摇杆" Foreground="#9DA7B5" Margin="0,15,0,0" />
+                    <TextBlock x:Name="RightStickText" Text="X      0&#x0a;Y      0" FontFamily="Cascadia Mono" Margin="0,5,0,0" />
+                    <TextBlock Text="扳机" Foreground="#9DA7B5" Margin="0,15,0,0" />
+                    <TextBlock x:Name="TriggersText" Text="LT   0    RT   0" FontFamily="Cascadia Mono" Margin="0,5,0,0" />
+                    <TextBlock Text="数据包" Foreground="#9DA7B5" Margin="0,15,0,0" />
+                    <TextBlock x:Name="PacketText" Text="0  ·  0 更新/秒" FontFamily="Cascadia Mono" Margin="0,5,0,0" />
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="2" Background="{StaticResource PanelBackground}" CornerRadius="14" Padding="18">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="22" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="左马达（低频）" Foreground="#C5CDD8" />
+                    <Grid>
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="46" /></Grid.ColumnDefinitions>
+                        <Slider x:Name="LeftMotorSlider" Minimum="0" Maximum="100" ValueChanged="MotorSlider_ValueChanged" />
+                        <TextBlock x:Name="LeftMotorText" Grid.Column="1" Text="0%" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="右马达（高频）" Foreground="#C5CDD8" />
+                    <Grid>
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="46" /></Grid.ColumnDefinitions>
+                        <Slider x:Name="RightMotorSlider" Minimum="0" Maximum="100" ValueChanged="MotorSlider_ValueChanged" />
+                        <TextBlock x:Name="RightMotorText" Grid.Column="1" Text="0%" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="3" Orientation="Horizontal" Margin="22,0,0,0" VerticalAlignment="Center">
+                    <Button Content="双马达测试" Click="BothMotors_Click" />
+                    <Button Content="停止" Click="StopMotors_Click" Margin="0" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

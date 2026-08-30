@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/windows/">
+    <Project Path="windows/MPad.Protocol/MPad.Protocol.csproj" />
+    <Project Path="windows/MPad.Companion/MPad.Companion.csproj" />
+    <Project Path="windows/MPad.Tester/MPad.Tester.csproj" />
+    <Project Path="windows/MPad.Protocol.Tests/MPad.Protocol.Tests.csproj" />
+  </Folder>
+</Solution>

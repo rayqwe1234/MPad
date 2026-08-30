@@ -1,0 +1,25 @@
+<Application x:Class="MPad.Companion.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             ShutdownMode="OnExplicitShutdown">
+    <Application.Resources>
+        <SolidColorBrush x:Key="WindowBackground" Color="#101217" />
+        <SolidColorBrush x:Key="PanelBackground" Color="#191D24" />
+        <SolidColorBrush x:Key="AccentBrush" Color="#7CFF6B" />
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="{StaticResource WindowBackground}" />
+            <Setter Property="Foreground" Value="#F4F6FA" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#F4F6FA" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="Margin" Value="0,0,8,0" />
+            <Setter Property="Background" Value="#2A303A" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#3B4350" />
+        </Style>
+    </Application.Resources>
+</Application>

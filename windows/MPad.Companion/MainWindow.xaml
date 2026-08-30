@@ -1,0 +1,77 @@
+<Window x:Class="MPad.Companion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MPad Companion" Width="760" Height="660" MinWidth="680" MinHeight="560"
+        Background="#101217" Foreground="#F4F6FA" FontFamily="Segoe UI"
+        WindowStartupLocation="CenterScreen">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="28">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="MPad Companion" FontSize="30" FontWeight="SemiBold" />
+                <TextBlock Text="将手机输入转换为一个 Xbox 360 手柄" Foreground="#9DA7B5" Margin="0,4,0,0" />
+            </StackPanel>
+
+            <Border Grid.Row="1" Background="{StaticResource PanelBackground}" CornerRadius="12" Padding="20" Margin="0,22,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="首次配对码" Foreground="#9DA7B5" />
+                        <TextBlock x:Name="PairingCodeText" Text="------" FontSize="38" FontFamily="Cascadia Mono" FontWeight="Bold" />
+                        <TextBlock Text="在手机端选择这台电脑后输入此码。" Foreground="#9DA7B5" />
+                    </StackPanel>
+                    <Button Grid.Column="1" Content="刷新配对码" Click="RefreshCode_Click" VerticalAlignment="Center" />
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="2" Margin="0,16,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="16" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Background="{StaticResource PanelBackground}" CornerRadius="12" Padding="18">
+                    <StackPanel>
+                        <TextBlock Text="连接" FontSize="17" FontWeight="SemiBold" />
+                        <TextBlock x:Name="HostStatusText" Text="正在启动…" Margin="0,8,0,0" TextWrapping="Wrap" />
+                        <TextBlock x:Name="ConnectionStatusText" Text="尚无手机连接" Foreground="#9DA7B5" Margin="0,5,0,0" />
+                        <TextBlock x:Name="NetworkInfoText" Foreground="#9DA7B5" Margin="0,5,0,0" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="2" Background="{StaticResource PanelBackground}" CornerRadius="12" Padding="18">
+                    <StackPanel>
+                        <TextBlock Text="虚拟手柄驱动" FontSize="17" FontWeight="SemiBold" />
+                        <TextBlock x:Name="DriverStatusText" Text="正在检测…" Margin="0,8,0,8" TextWrapping="Wrap" />
+                        <Button Content="安装 / 修复 ViGEmBus" Click="InstallDriver_Click" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Border Grid.Row="3" Background="{StaticResource PanelBackground}" CornerRadius="12" Padding="18" Margin="0,16,0,0">
+                <StackPanel>
+                    <TextBlock Text="实时输入" FontSize="17" FontWeight="SemiBold" />
+                    <TextBlock x:Name="InputStateText" FontFamily="Cascadia Mono" Text="Buttons: —&#x0a;Sticks:  L(0, 0)  R(0, 0)&#x0a;Triggers: LT 0  RT 0" Margin="0,8,0,0" />
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="4" Background="{StaticResource PanelBackground}" CornerRadius="12" Padding="18" Margin="0,16,0,0">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Text="运行日志" FontSize="17" FontWeight="SemiBold" Margin="0,0,0,8" />
+                    <TextBox x:Name="LogTextBox" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto" Background="#111419" Foreground="#B9C2CF"
+                             BorderThickness="0" Padding="10" MinHeight="110" />
+                </DockPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</Window>

@@ -1,0 +1,26 @@
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+*.jks
+*.keystore
+
+# .NET
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# IDE / OS
+.tmp-assets/
+.idea/
+.vs/
+.vscode/
+*.iml
+Thumbs.db
+.DS_Store
+
+# Runtime state and packaged third-party installers
+dist/
+logs/
+drivers/*.exe
