@@ -3,6 +3,7 @@ import {
   Cable,
   ChevronDown,
   Gamepad2,
+  GitFork,
   LayoutDashboard,
   Monitor,
   Network,
@@ -77,8 +78,14 @@ export default function Home() {
           <a href="#connect">连接方式</a>
           <a href="#interface">产品界面</a>
         </nav>
-        <a className="nav-action" href="#connect">
-          了解使用方式
+        <a
+          className="nav-action"
+          href="https://github.com/rayqwe1234/MPad"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GitFork size={17} aria-hidden="true" />
+          GitHub
         </a>
       </header>
 
@@ -310,7 +317,18 @@ export default function Home() {
         />
         <p className="kicker">MPad</p>
         <h2>下一局，用你的手机来控制。</h2>
-        <p>官网正在准备中，产品暂未在此页面开放下载。</p>
+        <p className="closing-copy">
+          查看源代码、版本说明，并从 GitHub 获取最新正式版。
+        </p>
+        <a
+          className="github-button"
+          href="https://github.com/rayqwe1234/MPad"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GitFork size={19} aria-hidden="true" />
+          github.com/rayqwe1234/MPad
+        </a>
       </section>
 
       <footer>
@@ -319,7 +337,15 @@ export default function Home() {
           <span>MPad</span>
         </a>
         <p>手机模拟游戏手柄 · Android + Windows</p>
-        <span>© 2026 MPad</span>
+        <a
+          className="footer-github"
+          href="https://github.com/rayqwe1234/MPad"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GitFork size={15} aria-hidden="true" />
+          GitHub
+        </a>
       </footer>
     </main>
   );

@@ -93,6 +93,9 @@ a {
 }
 .nav-action {
   justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 14px;
   font-weight: 650;
 }
@@ -599,10 +602,31 @@ a {
 .closing h2 {
   max-width: 720px;
 }
-.closing > p:last-child {
+.closing-copy {
   margin: 24px 0 0;
   color: var(--muted);
   font-size: 15px;
+}
+.github-button {
+  min-height: 50px;
+  margin-top: 32px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  border: 1px solid rgba(112, 250, 101, 0.45);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 680;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+.github-button:hover {
+  border-color: var(--green);
+  color: var(--green);
+  transform: translateY(-2px);
 }
 
 footer {
@@ -625,8 +649,15 @@ footer .brand img {
   height: 28px;
   border-radius: 6px;
 }
-footer > span {
+.footer-github {
   justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: color 180ms ease;
+}
+.footer-github:hover {
+  color: var(--green);
 }
 
 @media (max-width: 1100px) {
